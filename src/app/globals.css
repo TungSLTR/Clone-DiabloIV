@@ -1,6 +1,50 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+@import url(https://db.onlinewebfonts.com/c/ce7ee1905f939d4e0f4cfcb3470c4d4e?family=Old+Fenris);
+
+@font-face {
+  font-family: "Old Fenris";
+  src: url("https://db.onlinewebfonts.com/t/ce7ee1905f939d4e0f4cfcb3470c4d4e.eot");
+  src: url("https://db.onlinewebfonts.com/t/ce7ee1905f939d4e0f4cfcb3470c4d4e.eot?#iefix")
+      format("embedded-opentype"),
+    url("https://db.onlinewebfonts.com/t/ce7ee1905f939d4e0f4cfcb3470c4d4e.woff2")
+      format("woff2"),
+    url("https://db.onlinewebfonts.com/t/ce7ee1905f939d4e0f4cfcb3470c4d4e.woff")
+      format("woff"),
+    url("https://db.onlinewebfonts.com/t/ce7ee1905f939d4e0f4cfcb3470c4d4e.ttf")
+      format("truetype"),
+    url("https://db.onlinewebfonts.com/t/ce7ee1905f939d4e0f4cfcb3470c4d4e.svg#Old Fenris")
+      format("svg");
+}
+
+@import url(https://db.onlinewebfonts.com/c/445561adb0205293d892721a1985895c?family=Alegreya+Sans+Medium);
+
+@font-face {
+  font-family: "Alegreya Sans Medium";
+  src: url("https://db.onlinewebfonts.com/t/445561adb0205293d892721a1985895c.eot");
+  src: url("https://db.onlinewebfonts.com/t/445561adb0205293d892721a1985895c.eot?#iefix")
+      format("embedded-opentype"),
+    url("https://db.onlinewebfonts.com/t/445561adb0205293d892721a1985895c.woff2")
+      format("woff2"),
+    url("https://db.onlinewebfonts.com/t/445561adb0205293d892721a1985895c.woff")
+      format("woff"),
+    url("https://db.onlinewebfonts.com/t/445561adb0205293d892721a1985895c.ttf")
+      format("truetype"),
+    url("https://db.onlinewebfonts.com/t/445561adb0205293d892721a1985895c.svg#Alegreya Sans Medium")
+      format("svg");
+}
+@font-face {
+  font-family: exocet;
+  src: url(../../public/exocet-blizzard-medium.ttf);
+}
+* {
+  padding: 0;
+  margin: 0;
+  border: none;
+  font-family: inherit;
+  
+}
 
 :root {
   --foreground-rgb: 0, 0, 0;
@@ -8,11 +52,24 @@
   --background-end-rgb: 255, 255, 255;
 }
 
+:root {
+  --navbar-background-color: rgba(36, 37, 38, 0.8);
+  --navbar-blizzard-logo-background-color: rgba(0, 0, 0, 0.3);
+  --fontPoppin: "Poppins", sans-serif;
+}
+
 @media (prefers-color-scheme: dark) {
   :root {
     --foreground-rgb: 255, 255, 255;
     --background-start-rgb: 0, 0, 0;
     --background-end-rgb: 0, 0, 0;
+  }
+}
+
+@layer base {
+  html {
+    font-family: --fontPoppin;
+    overflow-x: hidden;
   }
 }
 
@@ -24,4 +81,52 @@ body {
       rgb(var(--background-end-rgb))
     )
     rgb(var(--background-start-rgb));
+}
+
+.navbar-background-color {
+  background-color: var(--navbar-background-color);
+}
+
+.navbar-logo-background-color {
+  background-color: var(--navbar-blizzard-logo-background-color);
+}
+
+.text-shadow {
+  text-shadow: 3px 5px 5px rgba(0, 0, 0, 0.5);
+}
+
+.buttonBuy::before, .buttonBuy::after {
+  background-image: url(https://blz-contentstack-images.akamaized.net/v3/assets/blt9c12f249ac15c7ec/blt9cbde4efd9bd70a6/62885697916fe131b16a8a1e/d4-button-filigree-left.png?auto=webp),
+    url(https://blz-contentstack-images.akamaized.net/v3/assets/blt9c12f249ac15c7ec/blt81d432069a265981/628856977af0830baa3c14c0/d4-button-filigree-right.png?auto=webp),
+    url(https://blz-contentstack-images.akamaized.net/v3/assets/blt9c12f249ac15c7ec/bltef876b15b03337eb/62885696202fdb31b01a8263/d4-button-filigree-center.png?auto=webp),
+    url(https://blz-contentstack-images.akamaized.net/v3/assets/blt9c12f249ac15c7ec/blte60dc6b3294f2a93/628853a2c90ac62d02593047/d4-button-primary-left-base.png?auto=webp),
+    url(https://blz-contentstack-images.akamaized.net/v3/assets/blt9c12f249ac15c7ec/blt6e1a8944382d66b7/628853a2202fdb31b01a825e/d4-button-primary-right-base.png?auto=webp),
+    url(https://blz-contentstack-images.akamaized.net/v3/assets/blt9c12f249ac15c7ec/blt3fc514970a2e1182/628853a9916fe131b16a8a1a/d4-button-primary-tile-base.jpg?auto=webp);
+}
+
+.buttonBuy::before, .buttonBuy::after {
+  background-size: auto 100%, auto 100%, auto 100%, auto calc(100% - 20px), auto calc(100% - 20px), 82% calc(100% - 20px);
+  background-repeat: no-repeat;
+  background-position: left center, right center, center center, 10px center, calc(100% - 10px) center, center center;
+  top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    content: "";
+    position: absolute;
+    z-index: -1;
+    transition: opacity 350ms, color 350ms;
+}
+
+.exco {
+  font-family: exocet;
+}
+
+.dropShadow {
+  text-shadow: 0px 0px 10px rgba(224, 165, 115, 0.66), 0px 0px 10px #C85541, 0px 4px 15px #000000;
+  filter: brightness(1.6);
+}
+
+.backgroundTextHead {
+  background: radial-gradient(15% 24% at 50% 30%, rgba(255, 103, 17, 0.28) 0%, rgba(255, 138, 0, 0) 100%), radial-gradient(34.85% 8.66% at 50% 41.34%, rgba(255, 122, 0, 0.0825) 0%, rgba(255, 137, 100, 0) 100%), radial-gradient(24.33% 46.56% at 50% 41.34%, rgba(255, 92, 0, 0.084) 0%, rgba(254, 98, 10, 0.0868) 45.44%, rgba(251, 110, 31, 0) 100%), radial-gradient(17.17% 22.61% at 50% 41.34%, rgba(255, 41, 41, 0.1) 0%, rgba(255, 121, 79, 0) 100%);
 }
